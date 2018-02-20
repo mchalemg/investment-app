@@ -20,7 +20,7 @@ public class AccountTests {
 	
 	@Test
 	public void testGetAccountById() {
-		Account acct = repository.findByAccountId("401k-18F");
+		Account acct = repository.findByAccountId(1);
 		String institution = acct.getInstitution();
 		assertEquals("Fidelity", institution);
 	}

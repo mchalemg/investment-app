@@ -35,7 +35,7 @@ import com.mchale.investmentapp.util.DateUtil;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class StockMarketTransactionTest {
 
-	private static final String TEST_ACCOUNT_ID = "TransactionTestAccountId";
+	private static final int TEST_ACCOUNT_ID = 2;
 	private static final String TEST_SYMBOL_GREATERTHAN = "FOOBARGT";
 	private static final String TEST_SYMBOL_BETWEEN = "FOOBARBET";
 	
@@ -71,7 +71,7 @@ public class StockMarketTransactionTest {
 				new Double(3), "stock", "buying");
 
 		txs.add(stockMarketTx);
-		repository.save(txs);
+		Iterable<StockMarketTransaction> save = repository.save(txs); 
 		
 	}
 		
@@ -111,7 +111,7 @@ public class StockMarketTransactionTest {
 
 		List<StockMarketTransaction> prices = repository.findByAccountId(TEST_ACCOUNT_ID);
 		repository.delete(prices);
-		List<StockMarketTransaction> prices2 = repository.findBySymbol(TEST_ACCOUNT_ID);
+		List<StockMarketTransaction> prices2 = repository.findByAccountId(TEST_ACCOUNT_ID);
 		assertEquals(0, prices2.size()); 		
 	}	
 	

@@ -18,9 +18,9 @@ import com.mchale.investmentapp.spring.data.datadynamodb.model.StockMarketTransa
 public interface StockMarketTransactionRepository extends CrudRepository<StockMarketTransaction, String> {
 
 	public List<StockMarketTransaction> findBySymbol(String symbol);
-	public List<StockMarketTransaction> findByAccountId(String accountId);
-	public List<StockMarketTransaction> findByAccountIdAndTxDateBetween(String accountId, long minTxDate, long maxTxDate);
-	public List<StockMarketTransaction> findByAccountIdAndTxDateGreaterThan(String accountId, long txDate);
+	public List<StockMarketTransaction> findByAccountId(int accountId);
+	public List<StockMarketTransaction> findByAccountIdAndTxDateBetween(int accountId, long minTxDate, long maxTxDate);
+	public List<StockMarketTransaction> findByAccountIdAndTxDateGreaterThan(int accountId, long txDate);
 	public List<StockMarketTransaction> findByTxDate(long txDate);
 	
 }

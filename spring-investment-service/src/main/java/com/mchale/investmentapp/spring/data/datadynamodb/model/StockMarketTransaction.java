@@ -14,7 +14,7 @@ public class StockMarketTransaction {
 	private long txDate; 
 	private Date txDateISO; 
 	private String symbol;
-	private String accountId;
+	private int accountId;
 	private Double price;
 	private Double shares;
 	private String action;
@@ -29,7 +29,7 @@ public class StockMarketTransaction {
 		super();
 	}
 
-	public StockMarketTransaction(String id, long txDate, Date txDateISO, String symbol, String accountId, Double price, Double shares,
+	public StockMarketTransaction(String id, long txDate, Date txDateISO, String symbol, int accountId, Double price, Double shares,
 			String action, Double amount, Double fees, String type, String actionRaw) {
 		super();
 		this.id = id;
@@ -46,7 +46,7 @@ public class StockMarketTransaction {
 		this.txDateISO= txDateISO;
 	}
 
-	public StockMarketTransaction(long txDate, Date txDateISO, String symbol, String accountId, Double price, Double shares,
+	public StockMarketTransaction(long txDate, Date txDateISO, String symbol, int accountId, Double price, Double shares,
 			String action, Double amount, Double fees, String type, String actionRaw) {
 		super();
 		//this.id = id;
@@ -110,10 +110,10 @@ public class StockMarketTransaction {
 	}
 	
 	@DynamoDBAttribute(attributeName = "accountId")
-	public String getAccountId() {
+	public int getAccountId() {
 		return accountId;
 	}
-	public void setAccountId(String accountId) {
+	public void setAccountId(int accountId) {
 		this.accountId = accountId;
 	}
 	

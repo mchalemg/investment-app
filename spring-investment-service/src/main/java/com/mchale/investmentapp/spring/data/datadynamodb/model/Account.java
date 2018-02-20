@@ -7,7 +7,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
  
 @DynamoDBTable(tableName = "Account")
 public class Account {
-	private String accountId;
+	private int accountId;
 	private String accountName;
 	private String accountNumber;
 	private String accountType;
@@ -15,7 +15,9 @@ public class Account {
 	public Account() {
 		super();
 	}
-	public Account(String accountId, String accountName, String accountNumber, String accountType, String institution) {
+	
+	
+	public Account(int accountId, String accountName, String accountNumber, String accountType, String institution) {
 		super();
 		this.accountId = accountId;
 		this.accountName = accountName;
@@ -26,10 +28,10 @@ public class Account {
 	
 	
 	@DynamoDBHashKey(attributeName = "accountId")
-	public String getAccountId() {
+	public int getAccountId() {
 		return accountId;
 	}
-	public void setAccountId(String accountId) {
+	public void setAccountId(int accountId) {
 		this.accountId = accountId;
 	}
 	
