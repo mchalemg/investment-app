@@ -61,7 +61,7 @@ public class StockMarketTransactionTest {
 					new Double(10),new Double(2),"buy",new Double(20), 
 					new Double(3), "stock", "buying");
 		
-		txs.add(stockMarketTx);
+		txs.add(stockMarketTx); 
 		
 		stockMarketTx 
 		= new StockMarketTransaction(latestDate.getMillis(),
