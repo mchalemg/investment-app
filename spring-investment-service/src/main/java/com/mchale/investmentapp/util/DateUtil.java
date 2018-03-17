@@ -20,10 +20,30 @@ public class DateUtil {
 		return parseDateTime.withTimeAtStartOfDay();
 	}
 	
+	public static String formatYearMonthDay(DateTime yearMonthDay) {
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd");
+		String print = formatter.print(yearMonthDay);
+		return print;
+	}
+
+	
+	public static DateTime getDateFromMonthDayYear(String monthDayYear) {
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("MM/dd/yyyy");
+		DateTime parseDateTime = formatter.parseDateTime(monthDayYear);
+		return parseDateTime.withTimeAtStartOfDay();
+	}
+
+	
+	
 	public static void testme() {
 		StockMarketTransaction t = new StockMarketTransaction();
 		
 
+	}
+
+	public static DateTime epoch() {
+		DateTime date = getDateFromYearMonthDay("1970-01-01"); 
+		return date;
 	}
 	
 }

@@ -1,6 +1,6 @@
 package com.mchale.investmentapp.spring.data.datadynamodb.model;
 
-import java.util.Date;
+import org.joda.time.DateTime;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
@@ -10,7 +10,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 public class StockMarketPrice {
 	
 	private String dateSymbol;
-	private Date statDate;
+	private long statDateMilis;
 	private String symbol;
 	private Double openPrice;
 	private Double closePrice;
@@ -18,17 +18,19 @@ public class StockMarketPrice {
 	private Double lowPrice;
 	private Double adjustedClosePrice;
 	private Double volume;
+	private Double dividend;
+	private Double splitCoefficient;	
 
 	public StockMarketPrice() {
 		super();
 	}
 	
 	
-	public StockMarketPrice(String dateSymbol, Date statDate, String symbol, Double openPrice, Double closePrice,
+	public StockMarketPrice(String dateSymbol, long statDate, String symbol, Double openPrice, Double closePrice,
 			Double highPrice, Double lowPrice, Double adjustedClosePrice, Double volume) {
 		super();
 		this.dateSymbol = dateSymbol;
-		this.statDate = statDate;
+		this.statDateMilis = statDate;
 		this.symbol = symbol;
 		this.openPrice = openPrice;
 		this.closePrice = closePrice;
@@ -47,12 +49,12 @@ public class StockMarketPrice {
 		this.dateSymbol = dateSymbol;
 	}
 	
-	@DynamoDBAttribute(attributeName = "statDate")
-	public Date getStatDate() {
-		return statDate;
+	@DynamoDBAttribute(attributeName = "statDateMilis")
+	public long getStatDateMilis() {
+		return statDateMilis;
 	}
-	public void setStatDate(Date statDate) {
-		this.statDate = statDate;
+	public void setStatDateMilis(long statDate) {
+		this.statDateMilis = statDate;
 	}
 	
 	@DynamoDBAttribute(attributeName = "symbol")
@@ -110,6 +112,20 @@ public class StockMarketPrice {
 	public void setVolume(Double volume) {
 		this.volume = volume;
 	}
-
 	
+	@DynamoDBAttribute(attributeName = "splitCoefficient")
+	public Double getSplitCoefficient() {
+		return splitCoefficient;
+	}
+	public void setSplitCoefficient(Double splitCoefficient) {
+		this.splitCoefficient = splitCoefficient;
+	}	
+	
+	@DynamoDBAttribute(attributeName = "dividend")
+	public Double getDividend() {
+		return dividend;
+	}
+	public void setDividend(Double dividend) {
+		this.dividend = dividend;
+	}	
 }

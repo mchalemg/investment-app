@@ -37,11 +37,11 @@ public class StockMarketAssetPriceTest {
 	public void testASaveList() {
 		List<StockMarketPrice> prices = new ArrayList<>();
 		DateTime dateTime = new DateTime();
-		StockMarketPrice stockMarketPrice = new StockMarketPrice("2018-01-01_SPY", dateTime.toDate(), "FOOBAR", new Double(9.99), new Double(10.99), 
+		StockMarketPrice stockMarketPrice = new StockMarketPrice("2018-01-01_SPY", dateTime.getMillis(), "FOOBAR", new Double(9.99), new Double(10.99), 
 				new Double(11.99), new Double(8.89), new Double(10.99), new Double(5));
 		prices.add(stockMarketPrice);
 		dateTime.plusDays(1);
-		prices.add(new StockMarketPrice("2018-01-02_SPY", dateTime.toDate(), "FOOBAR", new Double(10.99), new Double(11.99), 
+		prices.add(new StockMarketPrice("2018-01-02_SPY", dateTime.getMillis(), "FOOBAR", new Double(10.99), new Double(11.99), 
 				new Double(12.99), new Double(9.89), new Double(11.99), new Double(6)));
 
 		repository.save(prices);

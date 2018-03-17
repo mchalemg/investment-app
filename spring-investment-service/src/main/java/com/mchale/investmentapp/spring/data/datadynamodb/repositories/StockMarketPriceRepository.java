@@ -16,5 +16,6 @@ import com.mchale.investmentapp.spring.data.datadynamodb.model.StockMarketPrice;
 public interface StockMarketPriceRepository extends CrudRepository<StockMarketPrice, String> {
 
 	public List<StockMarketPrice> findBySymbol(String symbol);
+//	public long findMaxsStatDateMilisBySymbol(String symbol);
 
 }

@@ -13,4 +13,6 @@ public interface AccountRepository extends CrudRepository<com.mchale.investmenta
 
 	public Account findByAccountId(int accountId);
 	public Account findByAccountNumber(String accountNumber);
+	public Account findByUserIdAndInstitutionAndAccountName(int userId, String institution, String accountName);
 }
+ 

@@ -14,6 +14,7 @@ public class StockMarketAsset {
 	private String shortName;
 	
 	
+	
 	public StockMarketAsset() {
 		super();
 	}
@@ -65,6 +66,11 @@ public class StockMarketAsset {
 	}
 	public void setShortName(String shortName) {
 		this.shortName = shortName;
+	}
+	@Override
+	public String toString() {
+		return "StockMarketAsset [symbol=" + symbol + ", name=" + name + ", type=" + type + ", fundFamily=" + fundFamily
+				+ ", shortName=" + shortName + "]";
 	}
 	
 	
